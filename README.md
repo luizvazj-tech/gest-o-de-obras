@@ -1,4 +1,4 @@
-# Gestão de Obras (padrão Caixa) com simulador SERO
+# Mallora — Gestão de Obras (padrão Caixa) com simulador SERO
 
 Página única, publicada como site estático (comando de build: `echo ok`; diretório de publicação: `./`).
 
