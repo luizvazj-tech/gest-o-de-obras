@@ -31,7 +31,7 @@ function vRel(){if(!S.obras.length)return vazio();const sem=RT.startsWith('sem')
 
 /* ---------- importação e backup ---------- */
 let PREV=null;
-function vImp(){return `<section><h3>Importar PLS (.xlsx / .xlsm)</h3><p>Lê o orçamento, os grupos e o custo mensal. As macros não são executadas.</p><div class="fg">${field('dest','Destino','','sel',[['','Criar nova obra'],...S.obras.map(o=>[o.id,'Atualizar: '+o.nome])])}<label>Arquivo<input type="file" id="fpls" accept=".xlsx,.xlsm,.xls"></label></div>
+function vImp(){return `${blocoExemplos()}<section><h3>Importar PLS (.xlsx / .xlsm)</h3><p>Lê o orçamento, os grupos e o custo mensal. As macros não são executadas.</p><div class="fg">${field('dest','Destino','','sel',[['','Criar nova obra'],...S.obras.map(o=>[o.id,'Atualizar: '+o.nome])])}<label>Arquivo<input type="file" id="fpls" accept=".xlsx,.xlsm,.xls"></label></div>
  ${PREV?`<div class="al al-a"><b>${esc(PREV.nome||'Sem nome')}</b> — aba "${esc(PREV.aba)}": ${PREV.itens.length} serviços, ${PREV.grupos.length} grupos, custo direto ${money(PREV.direto)}, total com BDI ${money(PREV.valorTotal)}, custo realizado ${money(PREV.realizado)}.</div>${PREV.auditoria.map(a=>`<div class="al al-r">${esc(a)}</div>`).join('')}<button class="btn" data-act="confirma">Confirmar importação</button>`:''}</section>
  <section><h3>Cópia de segurança</h3><p class="hint">Dados gravados em: <b>${Store.mode==='nuvem'?'banco de dados desta página':Store.mode==='navegador'?'este navegador':'memória temporária (serão perdidos ao fechar)'}</b>.</p><button class="btn" data-act="backup">Baixar backup (JSON)</button> <label class="btn sec">Restaurar backup<input type="file" id="fbk" accept=".json" hidden></label></section>`}
 const vRegras=()=>`<section><h3>Critérios adotados</h3>
